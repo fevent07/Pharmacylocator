@@ -12,6 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const Login = () => {
+  const history = useHistory();
   const classes = useStyles();
 
   const [username, setUsername] = useState("");
@@ -76,8 +78,12 @@ export const Login = () => {
     };
 
     axios
-      .post("http://localhost:4000/app/sign-in", registered)
-      .then((response) => console.log(response.data));
+      .post("http://localhost:4000/user/sign-in", registered)
+      .then((response) => {
+        console.log(response.data);
+        localStorage.setItem("token", response.data)
+        history.push("/pharmaHome")
+      });
   };
 
   return (

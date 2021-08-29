@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import "./Navbar.css";
 
@@ -21,54 +21,54 @@ function Navbar() {
           </NavLink>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              <NavLink 
-                exact to="/"  
-                activeClassName="active" 
+              <NavLink
+                exact to="/"
+                activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}>
                 Home
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink 
-                exact to="/categories" 
-                activeClassName="active" 
+              <NavLink
+                exact to="/categories"
+                activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}>
                 Categories
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink 
-                exact to="/about" 
-                activeClassName="active"  
+              <NavLink
+                exact to="/about"
+                activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}>
                 About
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink 
-                exact to="/contact" 
-                activeClassName="active"  
+              <NavLink
+                exact to="/contact"
+                activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}>
                 Contact
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink 
-                exact to="/feedback" 
-                activeClassName="active"  
+              <NavLink
+                exact to="/feedback"
+                activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}>
                 Feedback
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink 
-                exact to="/login" 
-                activeClassName="active"  
+              <NavLink
+                exact to="/login"
+                activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}>
                 Login

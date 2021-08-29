@@ -128,7 +128,7 @@ export const Signup = () => {
     };
 
     axios
-      .post("http://localhost:4000/app/sign-up", registered)
+      .post("http://localhost:4000/user/sign-up", registered)
       .then((response) => console.log(response.data));
   };
 

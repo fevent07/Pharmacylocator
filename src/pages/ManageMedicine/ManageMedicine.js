@@ -1,6 +1,8 @@
 import React from 'react';
 import MaterialTable from 'material-table';
 import './style.css'
+import Navbar from '../../components/PharmaNavbar';
+import Sidebar from '../../components/pharma/Sidebar/sidebar';
 
 export const ManageMedicine = () => {
   const { useState } = React;
@@ -67,67 +69,73 @@ export const ManageMedicine = () => {
 
   return (
     <div className="ManageTable" >
+      <Navbar />
+      <div className="home1">
+        <div className="side" > <Sidebar /></div>
+        <div className="home">
 
-      <MaterialTable
-        style={{ display: 'flex!important', flexDirection: 'column' }}
-        title={<h1>Medicine Store table</h1>}
-        columns={columns}
-        data={data}
-        editable={{
-          onRowAdd: newData =>
-            new Promise((resolve, reject) => {
-              setTimeout(() => {
-                setData([...data, newData]);
+          <MaterialTable
+            style={{ display: 'flex!important', flexDirection: 'column' }}
+            title={<h1>Medicine Store table</h1>}
+            columns={columns}
+            data={data}
+            editable={{
+              onRowAdd: newData =>
+                new Promise((resolve, reject) => {
+                  setTimeout(() => {
+                    setData([...data, newData]);
 
-                resolve();
-              }, 1000)
-            }),
-          onRowUpdate: (newData, oldData) =>
-            new Promise((resolve, reject) => {
-              setTimeout(() => {
-                const dataUpdate = [...data];
-                const index = oldData.tableData.id;
-                dataUpdate[index] = newData;
-                setData([...dataUpdate]);
+                    resolve();
+                  }, 1000)
+                }),
+              onRowUpdate: (newData, oldData) =>
+                new Promise((resolve, reject) => {
+                  setTimeout(() => {
+                    const dataUpdate = [...data];
+                    const index = oldData.tableData.id;
+                    dataUpdate[index] = newData;
+                    setData([...dataUpdate]);
 
-                resolve();
-              }, 1000)
-            }),
-          onRowDelete: oldData =>
-            new Promise((resolve, reject) => {
-              setTimeout(() => {
-                const dataDelete = [...data];
-                const index = oldData.tableData.id;
-                dataDelete.splice(index, 1);
-                setData([...dataDelete]);
+                    resolve();
+                  }, 1000)
+                }),
+              onRowDelete: oldData =>
+                new Promise((resolve, reject) => {
+                  setTimeout(() => {
+                    const dataDelete = [...data];
+                    const index = oldData.tableData.id;
+                    dataDelete.splice(index, 1);
+                    setData([...dataDelete]);
 
-                resolve()
-              }, 1000)
-            }),
-        }}
-        options={{
-          headerStyle: {
-            backgroundColor: '#01579b',
-            color: '#FFF'
-          },
-          sorting: true,
-          search: true,
-          searchFieldAlignment: "right",
-          searchAoutoFocus: true,
-          searchFieldvarient: "standard",
-          filtering: true,
-          paging: true,
-          pageSizeoptions: [3, 7, 10,],
-          pageSize: 5,
-          paginationType: "stopped",
-          showfirstLastPageButtons: false,
-          exportButton: true,
-          exportFileName: 'Medicine Store',
-          exportAllData: true,
-          addRowPosition: "first",
-          actionColumnIndex: 'end',
-        }}
-      />
+                    resolve()
+                  }, 1000)
+                }),
+            }}
+            options={{
+              headerStyle: {
+                backgroundColor: '#01579b',
+                color: '#FFF'
+              },
+              sorting: true,
+              search: true,
+              searchFieldAlignment: "right",
+              searchAoutoFocus: true,
+              searchFieldvarient: "standard",
+              filtering: true,
+              paging: true,
+              pageSizeoptions: [3, 7, 10,],
+              pageSize: 5,
+              paginationType: "stopped",
+              showfirstLastPageButtons: false,
+              exportButton: true,
+              exportFileName: 'Medicine Store',
+              exportAllData: true,
+              addRowPosition: "first",
+              actionColumnIndex: 'end',
+            }}
+          />
+        </div>
+      </div>
     </div>
   )
 }

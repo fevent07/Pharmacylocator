@@ -9,7 +9,7 @@ function Navbar() {
   const handleClick = () => setClick(!click);
   return (
     <>
-      <nav className="navbar">
+      <nav className="navbar" style={{ width: '' }}>
         <div className="nav-container">
           <img className="logo-image"
             src={img1}
@@ -22,11 +22,11 @@ function Navbar() {
 
           <li className="nav-item">
             <NavLink
-              exact to="/login"
+              exact to="/Login"
               activeClassName="active"
               className="nav-links"
               onClick={handleClick}>
-              <i class="fas fa-user-circle"></i>
+              <i class="fas fas-sign-out"></i>
             </NavLink>
           </li>
 

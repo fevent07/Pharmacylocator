@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import pl from '../../components/images/p1.jpg';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+import Navbar from '../../components/GuestNavbar';
 
 //import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: 'url(https://retailpharmacymagazine.com.au/wp-content/uploads/2020/05/dexamethasone-retail-pharmacy.jpg)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
-    theme.palette.type === 'light' ? theme.palette.grey[500] : theme.palette.grey[900],
+      theme.palette.type === 'light' ? theme.palette.grey[500] : theme.palette.grey[900],
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
@@ -48,120 +49,123 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function handleClick(event) {
-    event.preventDefault();
-    console.info('You clicked a breadcrumb.');
-  }
-export const  About = () => {
+  event.preventDefault();
+  console.info('You clicked a breadcrumb.');
+}
+export const About = () => {
   const classes = useStyles();
 
   return (
-    <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar} alt="pl" src={pl} />
-         <h2>
-             <div>12admin_34</div>
-             <div>feventsige.gg@gmail.com</div>
-             <div>0934412666</div> 
-             <div>UserRole: Pharmacy</div>
-         </h2>
-         <Breadcrumbs aria-label="breadcrumb">
-        {/* <Typography color="textPrimary">About</Typography> */}
-         <Link  href="/" onClick={handleClick}
-              color="primary" component="h1" 
-              className={classes.submit}>
-        About</Link>             
-      <Link color="textPrimary" href="/" onClick={handleClick} component="h1" >
-        Password</Link>
-    </Breadcrumbs>
+    <div>
+      <Navbar />
+      <Grid container component="main" className={classes.root}>
+        <CssBaseline />
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <div className={classes.paper}>
+            <Avatar className={classes.avatar} alt="pl" src={pl} />
+            <h2>
+              <div>12admin_34</div>
+              <div>feventsige.gg@gmail.com</div>
+              <div>0934412666</div>
+              <div>UserRole: Pharmacy</div>
+            </h2>
+            <Breadcrumbs aria-label="breadcrumb">
+              {/* <Typography color="textPrimary">About</Typography> */}
+              <Link href="/" onClick={handleClick}
+                color="primary" component="h1"
+                className={classes.submit}>
+                About</Link>
+              <Link color="textPrimary" href="/" onClick={handleClick} component="h1" >
+                Password</Link>
+            </Breadcrumbs>
 
-        </div>
-      </Grid>
-      <Grid item xs={12} sm={8} md={7} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
- <Typography component="h1" variant="h3"               type="submit"
+          </div>
+        </Grid>
+        <Grid item xs={12} sm={8} md={7} component={Paper} elevation={6} square>
+          <div className={classes.paper}>
+            <Typography component="h1" variant="h3" type="submit"
               fullWidth
               color="primary"
               className={classes.submit}>
-       About 
-          </Typography>
-          <h1 >Personal Details</h1>
-          <form >
-<div>
-<TextField
-              variant="outlined"
-              margin="normal"
-              required
-              id="text"
-              label="Pharmacy Name"
-              name="text"
-              autoComplete="text"
-              autoFocus
-            /> 
-</div>
-            <div>
-            <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            id="text"
-            label="Phone Number"
-            name="text"
-            autoComplete="text"
-            autoFocus
-          /> 
-           </div>   
-          
-<div>
-<TextField
-          variant="outlined"
-          required
-          margin="normal"
-          id="text"
-          label="Email"
-          name="text"
-          autoComplete="text"
-          autoFocus
-        />
-</div>
+              About
+            </Typography>
+            <h1 >Personal Details</h1>
+            <form >
+              <div>
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  id="text"
+                  label="Pharmacy Name"
+                  name="text"
+                  autoComplete="text"
+                  autoFocus
+                />
+              </div>
+              <div>
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  id="text"
+                  label="Phone Number"
+                  name="text"
+                  autoComplete="text"
+                  autoFocus
+                />
+              </div>
 
-        <h2> Pharmacy Bio  </h2> 
-<div>
-<TextField
-          variant="outlined"
-          id="text"
-          margin="normal"
-          label="Text Area"
-          name="text"
-          autoComplete="text"
-          autoFocus
-        />
-</div>
+              <div>
+                <TextField
+                  variant="outlined"
+                  required
+                  margin="normal"
+                  id="text"
+                  label="Email"
+                  name="text"
+                  autoComplete="text"
+                  autoFocus
+                />
+              </div>
 
-<div>
-<TextField
-          variant="outlined"
-          required
-          id="text"
-          label="Location"
-          name="text"
-          autoComplete="text"
-          autoFocus
-        />
-</div>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Save Changes
-            </Button>
-           </form>
-        </div>
+              <h2> Pharmacy Bio  </h2>
+              <div>
+                <TextField
+                  variant="outlined"
+                  id="text"
+                  margin="normal"
+                  label="Text Area"
+                  name="text"
+                  autoComplete="text"
+                  autoFocus
+                />
+              </div>
+
+              <div>
+                <TextField
+                  variant="outlined"
+                  required
+                  id="text"
+                  label="Location"
+                  name="text"
+                  autoComplete="text"
+                  autoFocus
+                />
+              </div>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
+                Save Changes
+              </Button>
+            </form>
+          </div>
+        </Grid>
       </Grid>
-    </Grid>
+    </div>
   );
-  }
+}

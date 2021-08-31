@@ -1,6 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, useLocation, useHistory } from "react-router-dom";
 import { About } from "./pages/About/About";
 import { Categories } from "./pages/Categories/Categories";
 import { Contact } from "./pages/Contact/Contact";
@@ -16,27 +16,32 @@ import ManageProfile from "./pages/ManageProfile/ManageProfile"
 import FeedbackPh from "./pages/FeedbackPh/FeedbackPh"
 
 function App() {
+  const history = useHistory();
+  console.log()
+  const getNav = () => {
+    return
+  }
   return (
     <>
-      <Router>
-        <Navbar />
-        <div className="pages">
-          <Switch>
-            <Route exact path="/about" component={About} />
-            <Route exact path="/categories" component={Categories} />
-            <Route exact path="/contact" component={Contact} />
-            <Route exact path="/feedback" component={Feedback} />
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
-            <GuardedRoute exact path="/pharmaHome" component={PharmaHome} />
-            <GuardedRoute exact path="/ViewMedicine" component={ViewMedicine} />
-            <GuardedRoute exact path="/ManageProfile" component={ManageProfile} />
-            <GuardedRoute exact path="/ManageMedicine" component={ManageMedicine} />
-            <GuardedRoute exact path="/FeedbackPh" component={FeedbackPh} />
-          </Switch>
-        </div>
-      </Router>
+
+      {/* {history.location.pathname === '/login' ? <Navbar /> : null} */}
+      <div className="pages">
+        <Switch>
+          <Route exact path="/about" component={About} />
+          <Route exact path="/categories" component={Categories} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/feedback" component={Feedback} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <GuardedRoute exact path="/pharmaHome" component={PharmaHome} />
+          <GuardedRoute exact path="/ViewMedicine" component={ViewMedicine} />
+          <GuardedRoute exact path="/ManageProfile" component={ManageProfile} />
+          <GuardedRoute exact path="/ManageMedicine" component={ManageMedicine} />
+          <GuardedRoute exact path="/FeedbackPh" component={FeedbackPh} />
+        </Switch>
+      </div>
+
     </>
   );
 }

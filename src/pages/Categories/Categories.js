@@ -14,6 +14,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import Button from "@material-ui/core/Button";
 
 import Checkbox from "@material-ui/core/Checkbox";
+import Navbar from "../../components/GuestNavbar";
 const onClick = () => {
   console.log("click");
 };
@@ -100,6 +101,7 @@ export const Categories = () => {
 
   return (
     <div>
+      <Navbar />
       <div container className="list">
         <CardContent className={classes.listcontent}>
           <Typography>Search Filter </Typography>

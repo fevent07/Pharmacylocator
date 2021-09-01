@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
+import Dropdown from 'react-bootstrap/Dropdown'
+import DropdownButton from 'react-bootstrap/DropdownButton'
 import "./Navbar.css";
 
 import img1 from '../images/logo.png';
@@ -30,30 +32,20 @@ function Navbar() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink
-                exact to="/categories"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}>
-                Categories
-              </NavLink>
+              <DropdownButton id="dropdown-basic-button" title="Categories" >
+                <Dropdown.Item href="/Prescriped">Prescription Only</Dropdown.Item>
+                <Dropdown.Item href="/Pernatal">Prenatal</Dropdown.Item>
+                <Dropdown.Item href="/Antibiotics">Antibiotics</Dropdown.Item>
+                <Dropdown.Item href="/Other">Others</Dropdown.Item>
+              </DropdownButton>
             </li>
             <li className="nav-item">
               <NavLink
-                exact to="/about"
+                exact to="/Pharmacies"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}>
-                About
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                exact to="/contact"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}>
-                Contact
+                Pharmacies
               </NavLink>
             </li>
             <li className="nav-item">

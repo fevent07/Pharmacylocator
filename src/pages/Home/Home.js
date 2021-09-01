@@ -22,6 +22,7 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from "@material-ui/icons/Search";
 import background from "../../components/images/location.jpg";
 import Navbar from '../../components/GuestNavbar';
+import Footer1 from "../../components/Footer/Footer1"
 //import { Style } from '@material-ui/icons';
 function Copyright() {
   return (
@@ -262,7 +263,7 @@ export const Home = () => {
         </Container>
       </main>
       {/* Footer */}
-      <footer className={classes.footer}>
+      {/* <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
           Footer
         </Typography>
@@ -271,7 +272,8 @@ export const Home = () => {
         </Typography>
         <Copyright />
       </footer>
-      {/* End footer */}
+      End footer */}
+      <Footer1 />
     </React.Fragment>
   );
 }

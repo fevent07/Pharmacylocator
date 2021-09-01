@@ -12,8 +12,6 @@ import { createTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 //import { purple } from "@material-ui/core/colors";
 import Button from "@material-ui/core/Button";
-
-import Checkbox from "@material-ui/core/Checkbox";
 import Navbar from "../../components/GuestNavbar";
 const onClick = () => {
   console.log("click");

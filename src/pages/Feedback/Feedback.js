@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer1 from '../../components/Footer/Footer1';
 import Navbar from '../../components/GuestNavbar';
 import feedbackImg from "../../components/images/feedbackBG.jpg";
 import "./Feedback.css";
@@ -23,6 +24,9 @@ export const Feedback = () => {
           </div>
         </div>
       </div>
+      <br />
+      <br />
+      <Footer1 />
     </div>
   )
 }

@@ -1,0 +1,14 @@
+.footer{
+    color:whitesmoke;
+    Width:100vw;
+     position: relative;
+     bottom: 0;
+    background-color: black;
+}
+ter:after {
+  background: #00b5e2;
+}
+.text{
+    color: #00b5e2 ;
+   text-decoration: underline;
+}

@@ -18,13 +18,12 @@ import Home1 from "./pages/Categories/Home";
 
 function App() {
   const history = useHistory();
-  console.log()
+  console.log();
   const getNav = () => {
-    return
-  }
+    return;
+  };
   return (
     <>
-
       {/* {history.location.pathname === '/login' ? <Navbar /> : null} */}
       <div className="pages">
         <Switch>
@@ -39,11 +38,14 @@ function App() {
           <GuardedRoute exact path="/pharmaHome" component={PharmaHome} />
           <GuardedRoute exact path="/ViewMedicine" component={ViewMedicine} />
           <GuardedRoute exact path="/ManageProfile" component={ManageProfile} />
-          <GuardedRoute exact path="/ManageMedicine" component={ManageMedicine} />
+          <GuardedRoute
+            exact
+            path="/ManageMedicine"
+            component={ManageMedicine}
+          />
           <GuardedRoute exact path="/FeedbackPh" component={FeedbackPh} />
         </Switch>
       </div>
-
     </>
   );
 }

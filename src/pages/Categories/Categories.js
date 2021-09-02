@@ -23,23 +23,23 @@ const useStyles = makeStyles((theme) => ({
     width: "70%",
     display: "flex",
     marginTop: "55px",
-    float: "right"
+    float: "right",
   },
   details: {
     display: "flex",
     flexDirection: "column",
-    width: "30"
+    width: "30",
   },
   contents: {
     width: "100%",
-    display: "fixed"
+    display: "fixed",
   },
   content: {
     height: "193px",
 
     width: "150px",
     //    backgroundColor: "#E1F5FE",
-    flex: "1 0 auto "
+    flex: "1 0 auto ",
   },
   list: {
     // backgroundColor: "#cfe8fc",
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
   listcontent: {
     "& > *": {
-      margin: theme.spacing(1)
+      margin: theme.spacing(1),
     },
     width: "20%",
     backgroundColor: "#EEEEEE",
@@ -57,10 +57,10 @@ const useStyles = makeStyles((theme) => ({
     border: "1",
     float: "left",
 
-    flexDirection: "column"
+    flexDirection: "column",
   },
   cover: {
-    width: "50%"
+    width: "50%",
     // marginBottom: "20px",
     // marginTop: "50px"
   },
@@ -69,16 +69,16 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "20px",
     marginLeft: "20px",
     paddingLeft: theme.spacing(1),
-    paddingBottom: theme.spacing(1)
+    paddingBottom: theme.spacing(1),
   },
   button: {
     marginBottom: "10px",
-    marginTop: "10px"
+    marginTop: "10px",
   },
   playIcon: {
     height: 38,
-    width: 38
-  }
+    width: 38,
+  },
 }));
 
 const demo1 = createTheme({
@@ -86,13 +86,13 @@ const demo1 = createTheme({
     marginBottom: "10px",
     primary: {
       // Purple and green play nicely together.
-      main: "#29B6F6"
+      main: "#29B6F6",
     },
     secondary: {
       // This is green.A700 as hex.
-      main: "#29B6F6"
-    }
-  }
+      main: "#29B6F6",
+    },
+  },
 });
 
 export const Categories = () => {
@@ -139,7 +139,7 @@ export const Categories = () => {
         <CardContent
           className={classes.content}
           style={{
-            marginLeft: "26px"
+            marginLeft: "26px",
           }}
         >
           <ThemeProvider theme={demo1}>
@@ -180,7 +180,7 @@ export const Categories = () => {
         <CardContent
           className={classes.content}
           style={{
-            marginLeft: "26px"
+            marginLeft: "26px",
           }}
         >
           <ThemeProvider theme={demo1}>
@@ -239,7 +239,7 @@ export const Categories = () => {
         <CardContent
           className={classes.content}
           style={{
-            marginLeft: "26px"
+            marginLeft: "26px",
           }}
         >
           <ThemeProvider theme={demo1}>
@@ -256,4 +256,4 @@ export const Categories = () => {
       </Card>
     </div>
   );
-}
+};

@@ -65,6 +65,17 @@ export const ManageMedicine = () => {
       });
   }, []);
 
+  const [medId, setMedId] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/meds")
+      .then((res) => res._id)
+      .then((res) => {
+        console.log(res._id);
+        setMedId(res._id);
+      });
+  }, []);
+
   return (
     <div className="ManageTable">
       <Navbar />
@@ -93,6 +104,7 @@ export const ManageMedicine = () => {
                 }),
               onRowUpdate: (newData, oldData) =>
                 new Promise((resolve, reject) => {
+                  console.log(medId);
                   setTimeout(() => {
                     const dataUpdate = [...data];
                     const index = oldData.tableData.id;

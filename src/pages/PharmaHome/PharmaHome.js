@@ -21,21 +21,61 @@ let rFactor = function () {
 };
 
 
-let barData = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [{
-        label: 'medicine',
-        backgroundColor: '#1e88e5',
-        borderColor: '#1e88e5',
-        data: [rFactor(), rFactor(), rFactor(), rFactor(), rFactor(), rFactor(), rFactor()]
-    },
-    {
-        label: 'product',
-        backgroundColor: '#7460ee',
-        borderColor: '#7460ee',
-        data: [rFactor(), rFactor(), rFactor(), rFactor(), rFactor(), rFactor(), rFactor()]
-    }]
+// let barData = {
+//     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+//     datasets: [{
+//         label: 'medicine',
+//         backgroundColor: '#1e88e5',
+//         borderColor: '#1e88e5',
+//         data: [rFactor(), rFactor(), rFactor(), rFactor(), rFactor(), rFactor(), rFactor()]
+//     },
+//     {
+//         label: 'product',
+//         backgroundColor: '#7460ee',
+//         borderColor: '#7460ee',
+//         data: [rFactor(), rFactor(), rFactor(), rFactor(), rFactor(), rFactor(), rFactor()]
+//     }]
+// };
+
+const data = {
+    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    datasets: [
+        {
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+            ],
+            borderWidth: 1,
+        },
+    ],
 };
+
+const options = {
+    scales: {
+        yAxes: [
+            {
+                ticks: {
+                    beginAtZero: true,
+                },
+            },
+        ],
+    },
+};
+
 const useStyles = makeStyles((theme) => ({
     margin: {
         margin: theme.spacing(1),
@@ -55,27 +95,17 @@ const PharmaHome = () => {
                         <Col sm={4} lg={10}>
                             <Card style={{ height: '40%' }}>
                                 <CardBody>
-                                    <div className="d-flex align-items-center" >
-                                        <div>
-                                            <CardTitle>Sales Summary</CardTitle>
-                                            <CardSubtitle>summary of the month</CardSubtitle>
-                                        </div>
-                                        <div className="ml-auto d-flex align-items-center">
-                                            <ul className="list-inline font-12 dl mr-3 mb-0">
-                                                <li className="border-0 p-0 text-info list-inline-item">
-                                                    <i className="fa fa-circle"></i> medicine
-                                                </li>
-                                                <li className="border-0 p-0 text-primary list-inline-item">
-                                                    <i className="fa fa-circle"></i> product
-                                                </li>
-                                            </ul>
+                                    <div>
+                                        <div className='header'>
+                                            <h1 className='title'>Search Analysis</h1>
                                         </div>
                                     </div>
                                     <Row>
                                         <Col lg="12">
                                             <div className="campaign ct-charts">
                                                 <div className="chart-wrapper" style={{ width: '100%', margin: '0 auto', height: 250 }}>
-                                                    <Bar data={barData} options={{ maintainAspectRatio: false, legend: { display: true, labels: { fontFamily: "Nunito Sans" } }, scales: { yAxes: [{ gridLines: { display: false }, ticks: { fontFamily: "Nunito Sans" } }], xAxes: [{ gridLines: { display: false }, ticks: { fontFamily: "Nunito Sans" }, barThickness: 15 }] } }} />
+                                                    <Bar data={data} options={{ maintainAspectRatio: false, legend: { display: true, labels: { fontFamily: "Nunito Sans" } }, scales: { yAxes: [{ gridLines: { display: false }, ticks: { fontFamily: "Nunito Sans" } }], xAxes: [{ gridLines: { display: false }, ticks: { fontFamily: "Nunito Sans" }, barThickness: 15 }] } }} />
+                                                    {/* <Bar data={barData} options={{ maintainAspectRatio: false, legend: { display: true, labels: { fontFamily: "Nunito Sans" } }, scales: { yAxes: [{ gridLines: { display: false }, ticks: { fontFamily: "Nunito Sans" } }], xAxes: [{ gridLines: { display: false }, ticks: { fontFamily: "Nunito Sans" }, barThickness: 15 }] } }} /> */}
                                                 </div>
                                             </div>
                                         </Col>

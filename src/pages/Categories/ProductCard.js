@@ -66,7 +66,7 @@ function ProductCard(props) {
     const classes = useStyles();
     const theme = useTheme();
     return (
-        <div style={{ border: '2px solid red', margin: '20px 20px' }}>
+        <div style={{ border: '2px solid grey', margin: '20px 20px' }}>
             <div className="border mb-4 rounded overflow-hidden">
                 <Link to={`/products/${props.product._id}`}>
                     <div

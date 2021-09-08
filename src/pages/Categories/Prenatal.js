@@ -12,7 +12,6 @@ import Navbar from '../../components/GuestNavbar';
 import ProductCard from './ProductCard';
 import axios from 'axios';
 import Loader from './Loader';
-import Footer1 from '../../components/Footer/Footer1';
 const onClick = () => {
     console.log("click");
 };
@@ -48,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 ;
-export const Prescriped = () => {
+export const Prenatal = () => {
     const classes = useStyles();
     const theme = useTheme();
     const [request, setRequest] = useState({
@@ -75,39 +74,35 @@ export const Prescriped = () => {
 
     return (
         <div>
-
-            <div>
-                <Navbar />
-                <div className="list">
-                    <CardContent className={classes.listcontent}>
-                        <Typography>Search By </Typography>
-                        <Link exact to="/Prescriped" activeClassName="activeClicked" >
-                            <Button onClick={onClick}> Prescriped Only </Button><br />
-                        </Link>
-                        <Link exact to="/Prenatal" activeClassName="activeClicked" >
-                            <Button onClick={onClick}> Prenatal </Button><br />
-                        </Link>
-                        <Link exact to="/Antibiotics" activeClassName="activeClicked" >
-                            <Button onClick={onClick}> Antibiotics </Button><br />
-                        </Link>
-                        <Link exact to="/Others" activeClassName="activeClicked" >
-                            <Button onClick={onClick}> Others </Button><br />
-
-                        </Link>
-                    </CardContent>
-                </div>
-                <div>
-                    <br /><br />
-                    <h3 style={{ textAlign: 'center' }}> Prescription Needed Medicines</h3>
-                </div>
-                <div className="l" style={{ display: 'grid', gridTemplateColumns: "1fr 1fr 1fr", griGap: '20px', }}>
-                    {(request.loading) ? <Loader /> :
-                        request.data.map(med => <ProductCard key={med._id} product={med} />)}
-                </div>
+            <Navbar />
+            <div className="list">
+                <CardContent className={classes.listcontent}>
+                    <Typography>Search By </Typography>
+                    <Link exact to="/Prescriped" activeClassName="activeClicked" >
+                        <Button onClick={onClick}> Prescriped Only </Button><br />
+                    </Link>
+                    <Link exact to="/Prenatal" activeClassName="activeClicked" >
+                        <Button onClick={onClick}> Prenatal </Button><br />
+                    </Link>
+                    <Link exact to="/Antibiotics" activeClassName="activeClicked" >
+                        <Button onClick={onClick}> Antibiotics </Button><br />
+                    </Link>
+                    <Link exact to="/Other" activeClassName="activeClicked" >
+                        <Button onClick={onClick}> Others </Button><br />
+                    </Link>
+                </CardContent>
             </div>
-            {/* <Footer1 /> */}
+            <div>
+                <br /><br />
+                <h3 style={{ textAlign: 'center' }}> Prenatal Products</h3>
+            </div>
+            <div className="l" style={{ display: 'grid', gridTemplateColumns: "1fr 1fr 1fr", griGap: '20px', }}>
+                {(request.loading) ? <Loader /> :
+                    request.data.map(med => <ProductCard key={med._id} product={med} />)}
+            </div>
+
         </div>
     )
 }
 
-export default Prescriped
+export default Prenatal

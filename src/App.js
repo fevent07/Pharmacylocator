@@ -14,8 +14,11 @@ import ManageMedicine from "./pages/ManageMedicine/ManageMedicine"
 import ManageProfile from "./pages/ManageProfile/ManageProfile"
 import FeedbackPh from "./pages/FeedbackPh/FeedbackPh"
 import Prescriped from "./pages/Categories/Prescriped"
-import Home1 from "./pages/Categories/Home";
-
+import Antibiotics from "./pages/Categories/Antibiotics";
+import Prenatal from "./pages/Categories/Prenatal";
+import Others from "./pages/Categories/Others";
+// import Home1 from "./pages/Home/Home";
+// src\pages\Home\Home
 function App() {
   const history = useHistory();
   console.log();
@@ -29,6 +32,9 @@ function App() {
         <Switch>
           <Route exact path="/Pharmacies" component={Pharmacies} />
           <Route exact path="/Prescriped" component={Prescriped} />
+          <Route exact path="/Antibiotics" component={Antibiotics} />
+          <Route exact path="/Prenatal" component={Prenatal} />
+          <Route exact path="/Others" component={Others} />
           <Route exact path="/Home1" component={Home} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/feedback" component={Feedback} />

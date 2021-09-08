@@ -22,6 +22,7 @@ import background from "../../components/images/location.jpg";
 import Navbar from "../../components/GuestNavbar";
 import { faLandmark, faLaptopHouse } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import Footer1 from "../../components/Footer/Footer1";
 //import { Style } from '@material-ui/icons';
 function Copyright() {
   return (

@@ -60,7 +60,7 @@ function App() {
           />
           <GuardedRoute
             exact
-            path="/ManageMedicine"
+            path="/ManageMedicine/:id"
             component={ManageMedicine}
           />
           <GuardedRoute exact path="/FeedbackPh" component={FeedbackPh} />

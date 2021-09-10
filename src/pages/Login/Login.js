@@ -82,13 +82,13 @@ export const Login = () => {
       .post("http://localhost:4000/user/sign-in", registered)
       .then((response) => {
         console.log(response.data);
-        localStorage.setItem("token", response.data)
-        history.push("/pharmaHome")
+        localStorage.setItem("token", response.data);
+        history.push(`/pharmaHome/${response.data}`);
       });
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <Navbar />
       <Grid container component="main" className={classes.root}>
         <CssBaseline />

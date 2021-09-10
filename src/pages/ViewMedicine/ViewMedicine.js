@@ -239,7 +239,9 @@ export const ViewMedicine = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/meds")
+    fetch(
+      `http://localhost:4000/meds/pharmaMeds/${localStorage.getItem("token")}`
+    )
       .then((res) => res.json())
       .then((res) => {
         console.log(res);

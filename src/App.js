@@ -1,6 +1,12 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Switch, Route, useLocation, useHistory } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useLocation,
+  useHistory,
+} from "react-router-dom";
 import Pharmacies from "./pages/Pharmacies/Pharmacies";
 import { Contact } from "./pages/Contact/Contact";
 import { Feedback } from "./pages/Feedback/Feedback";
@@ -10,10 +16,10 @@ import { Signup } from "./pages/Signup/Signup";
 import GuardedRoute from "./components/GuardedRoute";
 import PharmaHome from "./pages/PharmaHome/PharmaHome";
 import ViewMedicine from "./pages/ViewMedicine/ViewMedicine";
-import ManageMedicine from "./pages/ManageMedicine/ManageMedicine"
-import ManageProfile from "./pages/ManageProfile/ManageProfile"
-import FeedbackPh from "./pages/FeedbackPh/FeedbackPh"
-import Prescriped from "./pages/Categories/Prescriped"
+import ManageMedicine from "./pages/ManageMedicine/ManageMedicine";
+import ManageProfile from "./pages/ManageProfile/ManageProfile";
+import FeedbackPh from "./pages/FeedbackPh/FeedbackPh";
+import Prescriped from "./pages/Categories/Prescriped";
 import Antibiotics from "./pages/Categories/Antibiotics";
 import Prenatal from "./pages/Categories/Prenatal";
 import Others from "./pages/Categories/Others";
@@ -41,9 +47,17 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <GuardedRoute exact path="/pharmaHome" component={PharmaHome} />
-          <GuardedRoute exact path="/ViewMedicine" component={ViewMedicine} />
-          <GuardedRoute exact path="/ManageProfile" component={ManageProfile} />
+          <GuardedRoute exact path="/pharmaHome/:id" component={PharmaHome} />
+          <GuardedRoute
+            exact
+            path="/ViewMedicine/:id"
+            component={ViewMedicine}
+          />
+          <GuardedRoute
+            exact
+            path="/ManageProfile/:id"
+            component={ManageProfile}
+          />
           <GuardedRoute
             exact
             path="/ManageMedicine"

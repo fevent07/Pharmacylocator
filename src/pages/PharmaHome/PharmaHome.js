@@ -1,4 +1,4 @@
-import { React, } from 'react';
+import { React, useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Sidebar from "../../components/pharma/Sidebar/sidebar";
@@ -15,54 +15,28 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/PharmaNavbar';
 import "../style.css"
+import axios from 'axios';
 let rFactor = function () {
 
     return Math.round(Math.random() * 100);
 };
+// const onSubmit = (event) => {
+//     event.preventDefault();
 
+//     const registered = {
+//         userName: username,
+//         password: password,
+//     };
 
-// let barData = {
-//     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-//     datasets: [{
-//         label: 'medicine',
-//         backgroundColor: '#1e88e5',
-//         borderColor: '#1e88e5',
-//         data: [rFactor(), rFactor(), rFactor(), rFactor(), rFactor(), rFactor(), rFactor()]
-//     },
-//     {
-//         label: 'product',
-//         backgroundColor: '#7460ee',
-//         borderColor: '#7460ee',
-//         data: [rFactor(), rFactor(), rFactor(), rFactor(), rFactor(), rFactor(), rFactor()]
-//     }]
+//     axios
+//         .post("http://localhost:4000/user/sign-in", registered)
+//         .then((response) => {
+//             console.log(response.data);
+//             localStorage.setItem("token", response.data);
+//             history.push(`/pharmaHome/${response.data}`);
+//         });
 // };
 
-const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [
-        {
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-            ],
-            borderWidth: 1,
-        },
-    ],
-};
 
 const options = {
     scales: {
@@ -83,6 +57,48 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const PharmaHome = () => {
+    const [data, setData] = useState({
+        labels: [],
+        datasets: [
+            {
+                label: '# of searches',
+                data: [],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(44, 159, 123, 0.2)',
+                    'rgba(255, 123, 64, 0.2)',
+                    'rgba(11, 43, 64, 0.2)',
+                    'rgba(7, 7, 12, 0.8)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(44, 159, 123, 1)',
+                    'rgba(255, 123, 64, 1)',
+                    'rgba(11, 43, 64, 1)',
+                    'rgba(7, 7, 12, 1)',
+                ],
+                borderWidth: 1,
+            },
+        ]
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(async () => {
+        const { data: queries } = await axios.get("http://localhost:4000/search")
+        const labels = queries.map(q => q.name)
+        const values = queries.map(q => q.count)
+        setData({ labels, datasets: [{ ...data.datasets[0], data: values }] })
+    }, [])
+
     const classes = useStyles();
     return (
         <div >

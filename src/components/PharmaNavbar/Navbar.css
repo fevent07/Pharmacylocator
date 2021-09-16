@@ -8,6 +8,7 @@
   position: sticky;
   top: 0;
   z-index: 20;
+  position:sticky;
 }
 
 .nav-container {
@@ -34,7 +35,7 @@
   text-decoration: none;
   color: #00b5e2;
   align-items: center;
-  margin-left: 20px;
+  margin-left: 100px;
   cursor: pointer;
   font-size: 2rem;
   flex-grow: 1;

@@ -105,7 +105,7 @@ export const Prescriped = () => {
                         request.data.map(med => <ProductCard key={med._id} product={med} />)}
                 </div>
             </div>
-            {/* <Footer1 /> */}
+            <Footer1 />
         </div>
     )
 }

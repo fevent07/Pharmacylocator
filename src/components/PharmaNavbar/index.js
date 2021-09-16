@@ -26,17 +26,17 @@ function Navbar() {
             src={img1}
             alt="Canvas Logo"
           />
-          <NavLink exact to="/PharmaHome" className="nav-logo">
+          <NavLink exact to="/PharmaHome" className="nav-logo" style={{ textDecoration: "none" }}>
             <p>Pharmacy Locator</p>
           </NavLink>
 
 
-          <li className="nav-item">
+          <div className="nav-item">
             <div className="nav-links" onClick={handleShow}>
               <ExitToAppIcon />
               Logout
             </div>
-          </li>
+          </div>
           <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Header closeButton>
               <Modal.Title>Confirm logout</Modal.Title>

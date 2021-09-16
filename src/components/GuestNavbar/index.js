@@ -34,7 +34,7 @@ function Navbar() {
             <li className="nav-item">
               <DropdownButton id="dropdown-basic-button" title="Categories" >
                 <Dropdown.Item href="/Prescriped">Prescription Only</Dropdown.Item>
-                <Dropdown.Item href="/Pernatal">Prenatal</Dropdown.Item>
+                <Dropdown.Item href="/Prenatal">Prenatal</Dropdown.Item>
                 <Dropdown.Item href="/Antibiotics">Antibiotics</Dropdown.Item>
                 <Dropdown.Item href="/Other">Others</Dropdown.Item>
               </DropdownButton>

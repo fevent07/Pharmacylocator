@@ -9,14 +9,40 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Navbar from '../../components/GuestNavbar';
 import axios from 'axios';
-import "../../components/Footer/Footer.css"
 const useStyles = makeStyles((theme) => ({
+
+  root: {
+    width: "40%",
+    display: "flex",
+    marginTop: "55px",
+    float: "left"
+  },
 
   list: {
     // backgroundColor: "#cfe8fc",
-    // height: "100vh"
+    height: "100%",
+    float: "left",
+    width: "20%",
+    display: "flex",
   },
+  listcontent: {
+    "& > *": {
+      margin: theme.spacing(1)
+    },
+    width: "20%",
+    height: "100%",
+    backgroundColor: "#EEEEEE",
+    display: "flex",
+    overflow: "scroll initial",
 
+    // display: "flex-right",
+    margin: "2px",
+    marginTop: "0px",
+    border: "1",
+    float: "left",
+    flexDirection: "column"
+    //  style={{ display: "flex", overflow: "scroll initial" }}
+  }
 }));
 
 
@@ -50,25 +76,27 @@ const Pharmacies = () => {
   return (
     <div>
       <div>
-        <Navbar />
-        <div container className="list">
-          <CardContent className={classes.listcontent}>
-            <Typography>Search Filter </Typography>
-            <Button onClick={onClick}> Kenema </Button>
-            <br></br>
-            <Button onClick={onClick}> Shorter distance </Button>
-            <br></br>
-            <Button onClick={onClick}> less mone </Button> <br></br>
-            <Button onClick={onClick}> availability </Button> <br></br>
-            <Button onClick={onClick}> 24 hour </Button> <br></br>
-          </CardContent>
-        </div>
         <div>
-          {(request.loading) ? <Loader /> :
-            request.data.map(pharmacy => <Categories key={pharmacy._id} product={pharmacy} />)}
+          <Navbar />
+          <div container className="list">
+            <CardContent className={classes.listcontent}>
+              <Typography>Search Filter </Typography>
+              <Button onClick={onClick}> Kenema </Button>
+              <br></br>
+              <Button onClick={onClick}> Shorter distance </Button>
+              <br></br>
+              <Button onClick={onClick}> less mone </Button> <br></br>
+              <Button onClick={onClick}> availability </Button> <br></br>
+              <Button onClick={onClick}> 24 hour </Button> <br></br>
+            </CardContent>
+          </div>
+          <div>
+            {(request.loading) ? <Loader /> :
+              request.data.map(pharmacy => <Categories key={pharmacy._id} product={pharmacy} />)}
+          </div>
         </div>
       </div>
-      <Footer1 />
+      {/* <Footer1 /> */}
     </div>
   )
 }

@@ -118,8 +118,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
 // const cards = [1, 2, 3, 4, 5, 6];
 
 export const Home = () => {
@@ -130,10 +128,10 @@ export const Home = () => {
     error: null,
   });
   const searchClick = async (query) => {
-    console.log("here")
-    await axios.post('http://localhost:4000/search', { query });
+    console.log("here");
+    await axios.post("http://localhost:4000/search", { query });
     // history.push("/TO MEDICINE")
-  }
+  };
   const searchMedicine = (ev) => {
     // useEffect(() => {
     setSearchResults({ loading: true, data: null, error: null });
@@ -215,12 +213,28 @@ export const Home = () => {
             <Typography align="center" color="textPrimary" paragraph>
               eg. painkiller,advil, etc....
             </Typography>
-            <div style={{ backgroundColor: "#62a8dd", borderRadius: "6px", opacity: 0.5, width: "400px", alignContent: "center", marginLeft: "250px" }}>
+            <div
+              style={{
+                backgroundColor: "rgba(98, 168, 221,0.6)",
+                borderRadius: "6px",
+                width: "400px",
+                alignContent: "center",
+                marginLeft: "250px",
+                marginTop: "0px",
+                paddingTop: "0px",
+              }}
+            >
               {searchResults.loading ? (
                 <div className="loading" />
               ) : searchResults.data && searchResults.data.length ? (
                 searchResults.data.map((medicine) => (
-                  <p style={{ paddingLeft: "5px", color: "black" }} onClick={() => searchClick(medicine.medName)} key={medicine._id}>{medicine.medName}</p>
+                  <p
+                    style={{ paddingLeft: "5px", color: "black" }}
+                    onClick={() => searchClick(medicine.medName)}
+                    key={medicine._id}
+                  >
+                    {medicine.medName}
+                  </p>
                 ))
               ) : null}
             </div>

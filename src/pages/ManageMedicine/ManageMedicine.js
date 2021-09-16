@@ -7,19 +7,19 @@ import axios from "axios";
 
 export const ManageMedicine = () => {
   const [columns] = useState([
-    {
-      title: "Medicine ID",
-      field: "medicine_id",
-      validate: (rowData) =>
-        rowData.medicine_id === "" ? "Name cannot be empty" : "",
-      cellStyle: {
-        backgroundColor: "#039be5",
-        color: "#FFF",
-      },
-      headerStyle: {
-        backgroundColor: "#039be5",
-      },
-    },
+    // {
+    //   title: "Medicine ID",
+    //   field: "medicine_id",
+    //   validate: (rowData) =>
+    //     rowData.medicine_id === "" ? "Name cannot be empty" : "",
+    //   cellStyle: {
+    //     backgroundColor: "#039be5",
+    //     color: "#FFF",
+    //   },
+    //   headerStyle: {
+    //     backgroundColor: "#039be5",
+    //   },
+    // },
 
     {
       title: "Medicine Name",
@@ -31,6 +31,9 @@ export const ManageMedicine = () => {
       title: "Medicine Manufacure Date",
       field: "manufactureDate",
       type: "numeric",
+      cellStyle: {
+        textAlign: "left",
+      },
       validate: (rowData) =>
         rowData.medicine_manufactureDate < 1900
           ? "medicine_expireDate must be after 1900"
@@ -40,6 +43,9 @@ export const ManageMedicine = () => {
       title: "Medicine Expire Date",
       field: "expirationDate",
       type: "numeric",
+      cellStyle: {
+        textAlign: "left",
+      },
       validate: (rowData) =>
         rowData.medicine_expireDate < 1900
           ? "medicine_expireDate must be after 1900"
@@ -124,7 +130,7 @@ export const ManageMedicine = () => {
             }}
             options={{
               headerStyle: {
-                backgroundColor: "#01579b",
+                backgroundColor: "#00b5e2",
                 color: "#FFF",
               },
               sorting: true,

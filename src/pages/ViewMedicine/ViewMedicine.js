@@ -261,17 +261,17 @@ export const ViewMedicine = () => {
             title={<h1>Medicine Store View</h1>}
             data={data}
             columns={[
-              {
-                title: "Medicine ID",
-                field: "medicineId",
-                cellStyle: {
-                  backgroundColor: "#039be5",
-                  color: "#FFF",
-                },
-                headerStyle: {
-                  backgroundColor: "#039be5",
-                },
-              },
+              // {
+              //   title: "Medicine ID",
+              //   field: "medicineId",
+              //   cellStyle: {
+              //     backgroundColor: "#039be5",
+              //     color: "#FFF",
+              //   },
+              //   headerStyle: {
+              //     backgroundColor: "#039be5",
+              //   },
+              // },
 
               {
                 title: "Medicine Name",
@@ -296,7 +296,7 @@ export const ViewMedicine = () => {
             ]}
             options={{
               headerStyle: {
-                backgroundColor: "#01579b",
+                backgroundColor: "#00b5e2",
                 color: "#FFF",
               },
               searchFieldvarient: "",

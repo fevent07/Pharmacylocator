@@ -11,7 +11,7 @@ import Pharmacies from "./pages/Pharmacies/Pharmacies";
 import { Contact } from "./pages/Contact/Contact";
 import { Feedback } from "./pages/Feedback/Feedback";
 import { Home } from "./pages/Home/Home";
-import password from "./pages/ManageProfile/password";
+import Password from "./pages/ManageProfile/password";
 import { Login } from "./pages/Login/Login";
 import { Signup } from "./pages/Signup/Signup";
 import GuardedRoute from "./components/GuardedRoute";
@@ -24,6 +24,7 @@ import Prescriped from "./pages/Categories/Prescriped";
 import Antibiotics from "./pages/Categories/Antibiotics";
 import Prenatal from "./pages/Categories/Prenatal";
 import Others from "./pages/Categories/Others";
+import Search from "./pages/Search/Search";
 // import Home1 from "./pages/Home/Home";
 // src\pages\Home\Home
 function App() {
@@ -47,7 +48,8 @@ function App() {
           <Route exact path="/feedback" component={Feedback} />
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/password" component={password} />
+          <Route exact path="/password" component={Password} />
+          <Route exact path="/search" component={Search} />
 
           <Route exact path="/signup" component={Signup} />
           <GuardedRoute exact path="/pharmaHome/:id" component={PharmaHome} />

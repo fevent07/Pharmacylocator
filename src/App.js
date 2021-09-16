@@ -11,6 +11,7 @@ import Pharmacies from "./pages/Pharmacies/Pharmacies";
 import { Contact } from "./pages/Contact/Contact";
 import { Feedback } from "./pages/Feedback/Feedback";
 import { Home } from "./pages/Home/Home";
+import password from "./pages/ManageProfile/password";
 import { Login } from "./pages/Login/Login";
 import { Signup } from "./pages/Signup/Signup";
 import GuardedRoute from "./components/GuardedRoute";
@@ -46,6 +47,8 @@ function App() {
           <Route exact path="/feedback" component={Feedback} />
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/password" component={password} />
+
           <Route exact path="/signup" component={Signup} />
           <GuardedRoute exact path="/pharmaHome/:id" component={PharmaHome} />
           <GuardedRoute

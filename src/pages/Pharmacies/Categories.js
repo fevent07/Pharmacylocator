@@ -10,8 +10,8 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import { createTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { useEffect, useState } from "react";
+import axios from "axios";
 //import { purple } from "@material-ui/core/colors";
 import Button from "@material-ui/core/Button";
 import Navbar from "../../components/GuestNavbar";
@@ -24,23 +24,23 @@ const useStyles = makeStyles((theme) => ({
     width: "70%",
     display: "flex",
     marginTop: "55px",
-    float: "right"
+    float: "right",
   },
   details: {
     display: "flex",
     flexDirection: "column",
-    width: "30"
+    width: "30",
   },
   contents: {
     width: "100%",
-    display: "fixed"
+    display: "fixed",
   },
   content: {
     height: "193px",
 
     width: "150px",
     //    backgroundColor: "#E1F5FE",
-    flex: "1 0 auto "
+    flex: "1 0 auto ",
   },
   list: {
     // backgroundColor: "#cfe8fc",
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
   listcontent: {
     "& > *": {
-      margin: theme.spacing(1)
+      margin: theme.spacing(1),
     },
     width: "20%",
     backgroundColor: "#EEEEEE",
@@ -58,10 +58,10 @@ const useStyles = makeStyles((theme) => ({
     border: "1",
     float: "left",
 
-    flexDirection: "column"
+    flexDirection: "column",
   },
   cover: {
-    width: "50%"
+    width: "50%",
     // marginBottom: "20px",
     // marginTop: "50px"
   },
@@ -70,16 +70,16 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "20px",
     marginLeft: "20px",
     paddingLeft: theme.spacing(1),
-    paddingBottom: theme.spacing(1)
+    paddingBottom: theme.spacing(1),
   },
   button: {
     marginBottom: "10px",
-    marginTop: "10px"
+    marginTop: "10px",
   },
   playIcon: {
     height: 38,
-    width: 38
-  }
+    width: 38,
+  },
 }));
 
 const demo1 = createTheme({
@@ -87,45 +87,46 @@ const demo1 = createTheme({
     marginBottom: "10px",
     primary: {
       // Purple and green play nicely together.
-      main: "#29B6F6"
+      main: "#29B6F6",
     },
     secondary: {
       // This is green.A700 as hex.
-      main: "#29B6F6"
-    }
-  }
+      main: "#29B6F6",
+    },
+  },
 });
 export function useAxiosGet(url) {
   const [request, setRequest] = useState({
     loading: false,
     data: null,
-    error: false
-  })
+    error: false,
+  });
 
   useEffect(() => {
     setRequest({
       loading: true,
       data: null,
-      error: false
-    })
-    axios.get(url)
-      .then(response => {
+      error: false,
+    });
+    axios
+      .get(url)
+      .then((response) => {
         setRequest({
           loading: false,
           data: response.data,
-          error: false
-        })
+          error: false,
+        });
       })
       .catch(() => {
         setRequest({
           loading: false,
           data: null,
-          error: true
-        })
-      })
-  }, [url])
+          error: true,
+        });
+      });
+  }, [url]);
 
-  return request
+  return request;
 }
 
 export const Categories = (props) => {
@@ -134,18 +135,16 @@ export const Categories = (props) => {
 
   return (
     <div>
-
       <Card className={classes.root}>
         <CardMedia
           className={classes.cover}
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5O71KSU5PAdoL9J0cbINeGpG-qzcxcYKsEg&usqp=CAU"
-          // image={props.product.imageUrl}
+          //image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5O71KSU5PAdoL9J0cbINeGpG-qzcxcYKsEg&usqp=CAU"
+          image={props.product.profilePic}
           title="Live from space album cover"
         />
         <div className={classes.details}>
           <CardContent className={classes.contents}>
             <Link to={`/products/${props.product._id}`}>
-
               <Typography component="h5" variant="h5">
                 {props.product.pharmacyName}
               </Typography>
@@ -165,7 +164,7 @@ export const Categories = (props) => {
         <CardContent
           className={classes.content}
           style={{
-            marginLeft: "26px"
+            marginLeft: "26px",
           }}
         >
           <ThemeProvider theme={demo1}>
@@ -182,4 +181,4 @@ export const Categories = (props) => {
       </Card>
     </div>
   );
-}
+};

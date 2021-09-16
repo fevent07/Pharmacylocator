@@ -26,7 +26,7 @@ function Navbar() {
             src={img1}
             alt="Canvas Logo"
           />
-          <NavLink exact to="/PharmaHome" className="nav-logo" style={{ textDecoration: "none" }}>
+          <NavLink exact to="/PharmaHome" className="nav-logo" >
             <p>Pharmacy Locator</p>
           </NavLink>
 

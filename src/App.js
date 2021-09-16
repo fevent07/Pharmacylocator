@@ -25,6 +25,9 @@ import Antibiotics from "./pages/Categories/Antibiotics";
 import Prenatal from "./pages/Categories/Prenatal";
 import Others from "./pages/Categories/Others";
 // import Home1 from "./pages/Home/Home";
+
+import HealthTips from "./pages/Categories/healthTips.js";
+
 // src\pages\Home\Home
 function App() {
   const history = useHistory();
@@ -48,6 +51,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/password" component={password} />
+          <Route exact path="/healthTips" component={HealthTips} />
 
           <Route exact path="/signup" component={Signup} />
           <GuardedRoute exact path="/pharmaHome/:id" component={PharmaHome} />

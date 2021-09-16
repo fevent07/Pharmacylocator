@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -8,7 +8,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import pl from "../../images/p1.jpg";
+// import pl from "../../images/p1.jpg";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Navbar from "../../components/PharmaNavbar";
 import Sidebar from "../../components/pharma/Sidebar/sidebar";
@@ -64,22 +64,43 @@ function handleClickPassword(event) {
 
 export const ManageProfile = () => {
   const classes = useStyles();
-
+  const [datas, setDatas] = useState([]);
   const [file, setFile] = useState(null);
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [phonenumber, setPhoneNumber] = useState("");
   const [profilepic, setProfilepic] = useState("");
+
+  const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
   const changeUsername = (event) => {
     setUserName(event.target.value);
   };
   const changeEmail = (event) => {
-    setEmail(event.target.value);
+    if (event.target.value === "") {
+      setEmail(datas.email);
+      // console.log(datas[0].email);
+    } else {
+      setEmail(event.target.value);
+    }
   };
   const changePhoneNumber = (event) => {
     setPhoneNumber(event.target.value);
   };
+  const changePassword = (event) => {
+    setPassword(event.target.value);
+  };
+
+  useEffect(() => {
+    axios.get(
+      `http://localhost:4000/pharmacy/show/${localStorage.getItem("token")}`
+    )
+      .then((res) => res)
+      .then((res) => {
+        console.log(res.data);
+        setDatas(res.data);
+      });
+  }, []);
   const onSubmit = async (event) => {
     event.preventDefault();
     const updateUser = {
@@ -87,7 +108,13 @@ export const ManageProfile = () => {
       email: email,
       phoneNumber: phonenumber,
       profilePic: profilepic,
+      // password: password,
     };
+    // axios.get("http://localhost:4000/show")
+    //   .then(response);
+    // console.log(respose);
+
+
     if (file) {
       const data = new FormData();
       const filename = Date.now() + file.name;
@@ -96,9 +123,10 @@ export const ManageProfile = () => {
       updateUser.profilePic = filename;
       try {
         await axios.post("http://localhost:4000/upload", data);
-      } catch (err) {}
+      } catch (err) { }
       data.append("name", filename);
     }
+
     axios
       .put(
         `http://localhost:4000/pharmacy/${localStorage.getItem("token")}`,
@@ -146,32 +174,13 @@ export const ManageProfile = () => {
                 />
                 <div className="allProfile">
                   <h2>
-                    <div>{username}</div>
-                    <div>{email}</div>
-                    <div>{phonenumber}</div>
+                    <div> User Name :  {datas.userName}</div>
+                    <div> Email : {datas.email}</div>
+                    <div>PhoneNumber : {datas.phoneNumber}</div>
                     <div>UserRole: Pharmacy</div>
                   </h2>
                 </div>
-                <Breadcrumbs aria-label="breadcrumb">
-                  {/* <Typography color="textPrimary">About</Typography> */}
-                  <Link
-                    href="/"
-                    onClick={handleClick}
-                    color="primary"
-                    component="h1"
-                    className={classes.submit}
-                  >
-                    About
-                  </Link>
-                  <Link
-                    color="textPrimary"
-                    href="/"
-                    onClick={handleClickPassword}
-                    component="h1"
-                  >
-                    Password
-                  </Link>
-                </Breadcrumbs>
+
               </div>
             </Grid>
             <Grid
@@ -201,7 +210,7 @@ export const ManageProfile = () => {
                       style={{ width: "500px" }}
                       variant="outlined"
                       margin="normal"
-                      required
+                      // required
                       id="text"
                       label="Pharmacy Name"
                       name="text"
@@ -231,7 +240,7 @@ export const ManageProfile = () => {
                     <TextField
                       style={{ width: "500px" }}
                       variant="outlined"
-                      required
+                      // required
                       margin="normal"
                       id="text"
                       label="Email"
@@ -244,18 +253,20 @@ export const ManageProfile = () => {
                   </div>
 
                   <h2> Pharmacy Bio </h2>
-                  <div>
+                  {/* <div>
                     <TextField
                       style={{ width: "500px" }}
                       variant="outlined"
                       id="text"
                       margin="normal"
-                      label="Text Area"
+                      label="Password"
                       name="text"
                       autoComplete="text"
                       autoFocus
+                      value={password}
+                      onChange={changePassword}
                     />
-                  </div>
+                  </div> */}
 
                   <div>
                     <TextField
@@ -291,14 +302,15 @@ export const ManageProfile = () => {
                     </span>
                   )}
                 </form>
-                {handleClickPassword && (
+
+                {/* {handleClickPassword && (
                   <form onSubmit={onSubmit}>
                     <div>
                       <TextField
                         style={{ width: "500px" }}
                         variant="outlined"
                         margin="normal"
-                        required
+                        // required
                         id="text"
                         label="Pharmacy Name"
                         name="text"
@@ -328,7 +340,7 @@ export const ManageProfile = () => {
                       <TextField
                         style={{ width: "500px" }}
                         variant="outlined"
-                        required
+                        // required
                         margin="normal"
                         id="text"
                         label="Email"
@@ -361,8 +373,8 @@ export const ManageProfile = () => {
                         password has been changed{" "}
                       </span>
                     )}
-                  </form>
-                )}
+                  </form> */}
+                {/* )} */}
               </div>
             </Grid>
           </Grid>
@@ -370,5 +382,5 @@ export const ManageProfile = () => {
       </div>
     </div>
   );
-};
+}
 export default ManageProfile;

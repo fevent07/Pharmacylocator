@@ -52,7 +52,7 @@ function Navbar() {
               <NavLink
                 exact to="/feedback"
                 activeClassName="active"
-                className="nav-links"
+                className="nav-links" style={{ textDecoration: 'none' }}
                 onClick={handleClick}>
                 Feedback
               </NavLink>

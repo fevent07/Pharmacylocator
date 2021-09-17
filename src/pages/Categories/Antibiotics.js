@@ -36,9 +36,8 @@ const useStyles = makeStyles((theme) => ({
         },
         width: "20%",
         height: "100vh",
-        backgroundColor: "#EEEEEE",
+        backgroundColor: "lightgray",
         // display: "flex-right",
-        margin: "2px",
         marginTop: "0px",
         border: "1",
         float: "left",
@@ -78,7 +77,7 @@ export const Antibiotics = () => {
             <div className="list">
                 <CardContent className={classes.listcontent}>
                     <Typography>Search By </Typography>
-                    <Link exact to="/Prescriped" activeClassName="activeClicked" >
+                    <Link exact to="/Prescribed" activeClassName="activeClicked" >
                         <Button onClick={onClick}> Prescriped Only </Button><br />
                     </Link>
                     <Link exact to="/Prenatal" activeClassName="activeClicked" >

@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+// import "./ProductCard";
 const onClick = () => {
   console.log("click");
 };
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
     width: "20%",
-    backgroundColor: "#EEEEEE",
+    backgroundColor: "#8479FC",
     display: "flex-right",
     margin: "2px",
     marginTop: "55px",
@@ -66,7 +67,22 @@ function ProductCard(props) {
   const classes = useStyles();
   const theme = useTheme();
   return (
-    <div style={{ border: "2px solid grey", margin: "20px 20px" }}>
+    <div
+      className="card"
+      style={{
+        margin: "20px 10px",
+        borderRadius: "20px",
+        border: "none",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        width: "300px",
+        background: " linear-gradient(145deg, #bacfde, #ddf6ff)",
+        boxShadow: " 8px 8px 16px #d4d4d4,-8px -8px 16px #ffffff",
+      }}
+    >
       <div className="border mb-4 rounded overflow-hidden">
         <Link to={`/products/${props.product._id}`}>
           <div className="w-full h-64 bg-blue bg-cover"></div>
@@ -74,7 +90,9 @@ function ProductCard(props) {
       </div>
       <div className="p-1 col-xs-6">
         <h3 className="font-bold text-xl mb-3">
-          <Link to="/map">{props.product.medName}</Link>
+          <Link to={`/products/${props.product._id}`}>
+            {props.product.medName}
+          </Link>
         </h3>
         <div className="font-bold mb-3">$ {props.product.medPrice}</div>
         <div className="mb-3">{props.product.medType}</div>

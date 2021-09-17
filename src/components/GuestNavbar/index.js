@@ -33,10 +33,10 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <DropdownButton id="dropdown-basic-button" title="Categories" >
-                <Dropdown.Item href="/Prescriped">Prescription Only</Dropdown.Item>
+                <Dropdown.Item href="/Prescribed">Prescription Only</Dropdown.Item>
                 <Dropdown.Item href="/Prenatal">Prenatal</Dropdown.Item>
                 <Dropdown.Item href="/Antibiotics">Antibiotics</Dropdown.Item>
-                <Dropdown.Item href="/Other">Others</Dropdown.Item>
+                <Dropdown.Item href="/Others">Others</Dropdown.Item>
               </DropdownButton>
             </li>
             <li className="nav-item">
@@ -52,7 +52,7 @@ function Navbar() {
               <NavLink
                 exact to="/feedback"
                 activeClassName="active"
-                className="nav-links"
+                className="nav-links" style={{ textDecoration: 'none' }}
                 onClick={handleClick}>
                 Feedback
               </NavLink>

@@ -37,9 +37,9 @@ const useStyles = makeStyles((theme) => ({
         },
         width: "20%",
         height: "100vh",
-        backgroundColor: "#EEEEEE",
+        backgroundColor: "lightgray",
         // display: "flex-right",
-        margin: "2px",
+        margin: "0px",
         marginTop: "0px",
         border: "1",
         float: "left",
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 ;
-export const Prescriped = () => {
+export const Prescribed = () => {
     const classes = useStyles();
     const theme = useTheme();
     const [request, setRequest] = useState({
@@ -58,7 +58,7 @@ export const Prescriped = () => {
     })
 
     useEffect(() => {
-        const url = 'http://localhost:4000/meds'
+        const url = 'http://localhost:4000/meds/medType/PrescribedOnly'
         axios.get(url).then(resp => {
             console.log(resp)
             setRequest({ loading: false, data: resp.data, error: null });
@@ -81,17 +81,17 @@ export const Prescriped = () => {
                 <div className="list">
                     <CardContent className={classes.listcontent}>
                         <Typography>Search By </Typography>
-                        <Link exact to="/Prescriped" activeClassName="activeClicked" >
-                            <Button onClick={onClick}> Prescriped Only </Button><br />
+                        <Link exact to="/Prescribed" activeClassName="activeClicked" >
+                            <Button className="button" onClick={onClick} style={{ color: '#000' }}> Prescribed Only </Button><br />
                         </Link>
                         <Link exact to="/Prenatal" activeClassName="activeClicked" >
-                            <Button onClick={onClick}> Prenatal </Button><br />
+                            <Button onClick={onClick} style={{ color: '#000' }}> Prenatal </Button><br />
                         </Link>
                         <Link exact to="/Antibiotics" activeClassName="activeClicked" >
-                            <Button onClick={onClick}> Antibiotics </Button><br />
+                            <Button onClick={onClick} style={{ color: '#000' }}> Antibiotics </Button><br />
                         </Link>
                         <Link exact to="/Others" activeClassName="activeClicked" >
-                            <Button onClick={onClick}> Others </Button><br />
+                            <Button onClick={onClick} style={{ color: '#000' }}> Others </Button><br />
 
                         </Link>
                     </CardContent>
@@ -105,9 +105,9 @@ export const Prescriped = () => {
                         request.data.map(med => <ProductCard key={med._id} product={med} />)}
                 </div>
             </div>
-            <Footer1 />
+            {/* <Footer1 /> */}
         </div>
     )
 }
 
-export default Prescriped
+export default Prescribed

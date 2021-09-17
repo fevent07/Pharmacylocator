@@ -12,7 +12,7 @@ import { NavLink } from "react-router-dom";
 const Sidebar = () => {
   return (
     <div
-      style={{ display: "flex", overflow: "scroll initial" }}
+      style={{ display: "flex", overflow: "scroll initial", height: "auto" }}
     >
       <CDBSidebar textColor="#00AADB" backgroundColor="#000">
         <CDBSidebarContent className="sidebar-content">
@@ -22,7 +22,7 @@ const Sidebar = () => {
               to={`/PharmaHome/${localStorage.getItem("token")}`}
               activeClassName="activeClicked"
             >
-              <CDBSidebarMenuItem icon="home">Homed</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="home">Home</CDBSidebarMenuItem>
             </NavLink>
             <NavLink
               exact

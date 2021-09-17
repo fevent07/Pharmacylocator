@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
         },
         width: "20%",
         height: "100vh",
-        backgroundColor: "#EEEEEE",
+        backgroundColor: "lightgray",
         // display: "flex-right",
         margin: "2px",
         marginTop: "0px",
@@ -57,7 +57,7 @@ export const Prenatal = () => {
     })
 
     useEffect(() => {
-        const url = 'http://localhost:4000/meds'
+        const url = 'http://localhost:4000/meds/medType/Prenatal'
         axios.get(url).then(resp => {
             console.log(resp)
             setRequest({ loading: false, data: resp.data, error: null });
@@ -75,10 +75,11 @@ export const Prenatal = () => {
     return (
         <div>
             <Navbar />
+
             <div className="list">
                 <CardContent className={classes.listcontent}>
                     <Typography>Search By </Typography>
-                    <Link exact to="/Prescriped" activeClassName="activeClicked" >
+                    <Link exact to="/Prescribed" activeClassName="activeClicked" >
                         <Button onClick={onClick}> Prescriped Only </Button><br />
                     </Link>
                     <Link exact to="/Prenatal" activeClassName="activeClicked" >
@@ -87,7 +88,7 @@ export const Prenatal = () => {
                     <Link exact to="/Antibiotics" activeClassName="activeClicked" >
                         <Button onClick={onClick}> Antibiotics </Button><br />
                     </Link>
-                    <Link exact to="/Other" activeClassName="activeClicked" >
+                    <Link exact to="/Others" activeClassName="activeClicked" >
                         <Button onClick={onClick}> Others </Button><br />
                     </Link>
                 </CardContent>

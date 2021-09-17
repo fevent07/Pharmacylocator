@@ -25,6 +25,7 @@ import Antibiotics from "./pages/Categories/Antibiotics";
 import Prenatal from "./pages/Categories/Prenatal";
 import Others from "./pages/Categories/Others";
 import Search from "./pages/Search/Search";
+import Map from "./components/Map/Map";
 // import Home1 from "./pages/Home/Home";
 // src\pages\Home\Home
 function App() {
@@ -50,7 +51,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/password" component={Password} />
           <Route exact path="/search" component={Search} />
-
+          <Route exact path="/map" component={Map} />
           <Route exact path="/signup" component={Signup} />
           <GuardedRoute exact path="/pharmaHome/:id" component={PharmaHome} />
           <GuardedRoute

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 //import AppBar from '@material-ui/core/AppBar';
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
@@ -122,6 +123,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const Home = () => {
   const classes = useStyles();
+  const history = useHistory();
   const [searchResults, setSearchResults] = useState({
     loading: false,
     data: null,
@@ -130,13 +132,13 @@ export const Home = () => {
   const searchClick = async (query) => {
     console.log("here");
     await axios.post("http://localhost:4000/search", { query });
-    // history.push("/TO MEDICINE")
+    history.push("/map");
   };
   const searchMedicine = (ev) => {
     // useEffect(() => {
     setSearchResults({ loading: true, data: null, error: null });
     axios
-      .get(`http://localhost:4000/meds/search?q=${ev.target.value}`)
+      .get(`http://localhost:4000/meds/searchMed?q=${ev.target.value}`)
       .then((resp) =>
         setSearchResults({
           loading: false,
@@ -144,6 +146,8 @@ export const Home = () => {
           error: null,
         })
       );
+    localStorage.setItem("key", ev.target.value);
+
     console.log(searchResults);
     // }, []);
   };

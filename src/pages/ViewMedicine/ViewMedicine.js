@@ -248,6 +248,7 @@ export const ViewMedicine = () => {
         setData(res);
       });
   }, []);
+
   return (
     <div>
       <Navbar />

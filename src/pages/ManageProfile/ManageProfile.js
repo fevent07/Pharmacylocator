@@ -212,7 +212,7 @@ export const ManageProfile = () => {
                       margin="normal"
                       // required
                       id="text"
-                      label="Pharmacy Name"
+                      label="user name"
                       name="text"
                       autoComplete="text"
                       autoFocus
@@ -227,7 +227,7 @@ export const ManageProfile = () => {
                       margin="normal"
                       //required
                       id="text"
-                      label="Phone Number"
+                      label="phone number"
                       name="text"
                       autoComplete="text"
                       autoFocus
@@ -243,7 +243,7 @@ export const ManageProfile = () => {
                       // required
                       margin="normal"
                       id="text"
-                      label="Email"
+                      label={datas.email}
                       name="text"
                       autoComplete="text"
                       autoFocus
@@ -259,11 +259,11 @@ export const ManageProfile = () => {
                       variant="outlined"
                       id="text"
                       margin="normal"
-                      label="Password"
+                      label=""
                       name="text"
                       autoComplete="text"
                       autoFocus
-                      value={password}
+                      value={datas.password}
                       onChange={changePassword}
                     />
                   </div> */}

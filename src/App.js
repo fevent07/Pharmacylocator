@@ -20,11 +20,15 @@ import ViewMedicine from "./pages/ViewMedicine/ViewMedicine";
 import ManageMedicine from "./pages/ManageMedicine/ManageMedicine";
 import ManageProfile from "./pages/ManageProfile/ManageProfile";
 import FeedbackPh from "./pages/FeedbackPh/FeedbackPh";
-import Prescriped from "./pages/Categories/Prescriped";
+import Prescribed from "./pages/Categories/Prescribed";
 import Antibiotics from "./pages/Categories/Antibiotics";
 import Prenatal from "./pages/Categories/Prenatal";
 import Others from "./pages/Categories/Others";
+import Nearest from "./pages/Pharmacies/Nearest"
 import Search from "./pages/Search/Search";
+import Kenema from "./pages/Pharmacies/Kenema";
+
+
 // import Home1 from "./pages/Home/Home";
 
 import HealthTips from "./pages/Categories/healthTips.js";
@@ -42,7 +46,9 @@ function App() {
       <div className="pages">
         <Switch>
           <Route exact path="/Pharmacies" component={Pharmacies} />
-          <Route exact path="/Prescriped" component={Prescriped} />
+          <Route exact path="/Nearest" component={Nearest} />
+          <Route exact path="/Kenema" component={Kenema} />
+          <Route exact path="/Prescribed" component={Prescribed} />
           <Route exact path="/Antibiotics" component={Antibiotics} />
           <Route exact path="/Prenatal" component={Prenatal} />
           <Route exact path="/Others" component={Others} />
@@ -54,7 +60,7 @@ function App() {
           <Route exact path="/healthTips" component={HealthTips} />
           <Route exact path="/password" component={Password} />
           <Route exact path="/search" component={Search} />
-
+          <Route exact path="/Map1" component={Map} />
           <Route exact path="/signup" component={Signup} />
           <GuardedRoute exact path="/pharmaHome/:id" component={PharmaHome} />
           <GuardedRoute

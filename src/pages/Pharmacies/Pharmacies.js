@@ -5,6 +5,7 @@ import Loader from './Loader'
 import React, { useEffect, useState } from 'react'
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import CardContent from "@material-ui/core/CardContent";
+import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Navbar from '../../components/GuestNavbar';
@@ -80,14 +81,30 @@ const Pharmacies = () => {
           <Navbar />
           <div container className="list">
             <CardContent className={classes.listcontent}>
+
               <Typography>Search Filter </Typography>
+              <Link exact to="/Pharmacies" activeClassName="activeClicked" >
+                <Button onClick={onClick}> All pharmacy </Button><br />
+              </Link>
+              <Link exact to="/Kenema" activeClassName="activeClicked" >
+                <Button onClick={onClick}> Kenema </Button><br />
+              </Link>
+              <Link exact to="/Nearest" activeClassName="activeClicked" >
+                <Button onClick={onClick}> Nearest Pharmacy </Button><br />
+              </Link>
+              {/* <Link exact to="/Kenema" activeClassName="activeClicked" >
+                <Button onClick={onClick}> Kenema </Button><br />
+              </Link>
+              <Link exact to="/Kenema" activeClassName="activeClicked" >
+                <Button onClick={onClick}> Kenema </Button><br />
+              </Link>
               <Button onClick={onClick}> Kenema </Button>
               <br></br>
               <Button onClick={onClick}> Shorter distance </Button>
               <br></br>
               <Button onClick={onClick}> less mone </Button> <br></br>
               <Button onClick={onClick}> availability </Button> <br></br>
-              <Button onClick={onClick}> 24 hour </Button> <br></br>
+              <Button onClick={onClick}> 24 hour </Button> <br></br> */}
             </CardContent>
           </div>
           <div>

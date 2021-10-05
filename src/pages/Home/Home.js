@@ -8,7 +8,6 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
-import { useHistory } from "react-router-dom";
 import "./home.css";
 //import Toolbar from '@material-ui/core/Toolbar';
 import Typography from "@material-ui/core/Typography";
@@ -106,7 +105,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     alignContent: "left",
     marginTop: "130px",
-    marginLeft: "150px",
+    marginLeft: "320px",
     padding: "2px 4px",
     display: "flex",
     alignItems: "center",
@@ -247,7 +246,7 @@ export const Home = () => {
                 borderRadius: "6px",
                 width: "600px",
                 alignContent: "center",
-                marginLeft: "150px",
+                marginLeft: "320px",
                 marginTop: "7px",
               }}
             >
@@ -318,7 +317,7 @@ export const Home = () => {
                 />
                 <CardContent className={classes.cardContent}>
                   <Typography gutterBottom variant="h5" component="h2">
-                    Advil
+                    Medicine
                   </Typography>
                   <Typography></Typography>
                 </CardContent>
@@ -327,7 +326,7 @@ export const Home = () => {
                     Styles={{ border: "none" }}
                     size="small"
                     color="primary"
-                    onClick={() => history.push("/Prescriped")}
+                    onClick={() => history.push("/Others")}
                   >
                     View
                   </Button>
@@ -372,15 +371,32 @@ export const Home = () => {
             >
               <bold>Covid Informations</bold>
             </Typography>
-            <Typography
-              variant="h5"
-              align="center"
-              color="textSecondary"
-              paragraph
-            >
-              Find your medication
-            </Typography>
 
+            <Typography variant="h5" align="center" color="black" paragraph>
+              <p>
+                {" "}
+                Now that COVID-19 vaccines have reached billions of people
+                worldwide, the evidence is overwhelming that no matter which one
+                you take, the vaccines offer life-saving protection against a
+                disease that has killed millions. The pandemic is far from over,
+                and they are our best bet of staying safe.
+              </p>
+              <button
+                style={{
+                  variant: "outlined",
+                  Color: "blue",
+                  borderRadius: "5Px",
+                  textDecoration: "none",
+                }}
+              >
+                <a
+                  href="https://www.gavi.org/covid19-vaccines?gclid"
+                  alt="Broken Link"
+                >
+                  Learn more >{" "}
+                </a>
+              </button>
+            </Typography>
             {/* <Paper component="form" className={classes.root}> */}
             {/* <SearchIcon className={classes.iconButton} aria-label="menu">
             <MenuIcon />

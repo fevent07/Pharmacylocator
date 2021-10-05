@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#8479FC",
     display: "flex-right",
     margin: "2px",
+    textDecoration: "none",
     marginTop: "55px",
     border: "1",
     float: "left",
@@ -66,6 +67,11 @@ export function useAxiosGet(url) {
 function ProductCard(props) {
   const classes = useStyles();
   const theme = useTheme();
+
+  const handleClick = () => {
+    localStorage.setItem("key", props.product.medName);
+    console.log(props.product.medName);
+  };
   return (
     <div
       className="card"
@@ -90,14 +96,14 @@ function ProductCard(props) {
       </div>
       <div className="p-1 col-xs-6">
         <h3 className="font-bold text-xl mb-3">
-          <Link to={`/products/${props.product._id}`}>
+          <Link to="/map" onClick={handleClick}>
             {props.product.medName}
           </Link>
         </h3>
-        <div className="font-bold mb-3">$ {props.product.medPrice}</div>
+        <div className="font-bold mb-3">Birr: {props.product.medPrice}</div>
         <div className="mb-3">{props.product.medType}</div>
         <Link
-          to={`/products/${props.product._id}`}
+          to={`/map/${props.product._id}`}
           className="bg-blue-500 text-white p-2 flex justify-center w-full"
         >
           <Button size="small" color="primary">

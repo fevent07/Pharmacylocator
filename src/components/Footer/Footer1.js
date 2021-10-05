@@ -1,72 +1,114 @@
 import React from "react";
-import "../Footer/Footer.css"
+import "../Footer/Footer.css";
+import img1 from "../images/logo.png";
+
 const Footer1 = () => {
-    return (
-        <footer class="footer" style={{ marginTop: '50px' }}>
-            <div  >
+  return (
+    <footer class="footer" style={{ marginTop: "50px" }}>
+      <div>
+        <section class="">
+          <br />
+          <div class="row" style={{ marginLeft: "0px" }}>
+            <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
+              {/* <img className="logo-image"
+                                src={img1}
+                                alt="Canvas Logo"
+                                style={{ height: "90px", width: "100px", marginLeft: "700px" }}
+                            /> */}
+              <h5
+                class="text"
+                style={{
+                  marginLeft: "160px",
+                  marginRight: "300px",
+                  textDecoration: "none",
+                  cursor: "pointer",
+                }}
+              >
+                About Us
+              </h5>
 
-                <section class="">
-                    <br />
-                    <div class="row" style={{ marginLeft: "10px" }}>
-                        <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
-                            <h5 class="text">About Us</h5>
-
-                            <ul class="list-unstyled mb-0">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-                                    repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-                                    eum harum corrupti dicta, aliquam sequi voluptate quas.
-                                </p>
-                            </ul>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                            <h5 class="text">Contact Us</h5>
-
-                            <ul class="list-unstyled mb-0">
-                                <li>
-                                    <a href="#!" class="text-white">Link 1</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 2</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 3</a>
-                                </li>
-                                <li>
-                                    <a href="#!" class="text-white">Link 4</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                            <h5 class="text"> Other Links</h5>
-
-                            <ul class="list-unstyled mb-0">
-                                <li >
-                                    <i class="fab fa-facebook-f" />
-                                    <a href="#!" class="text-white" style={{ marginLeft: '10px' }}>Link 1</a>
-                                </li>
-                                <li >
-                                    <i class="fab fa-twitter" />
-                                    <a href="#!" class="text-white" style={{ marginLeft: '10px' }}>Link 2</a>
-                                </li>
-                                <li >
-                                    <i class="fab fa-instagram" />
-                                    <a href="#!" class="text-white" style={{ marginLeft: '10px' }}>Link 3</a>
-                                </li>
-                                <li >
-                                    <i class="fab fa-linkedin-in" />
-                                    <a href="#!" class="text-white" style={{ marginLeft: '10px' }}>Link 4</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <br /><br />
-                </section>
+              <ul class="list-unstyled mb-0">
+                <p
+                  style={{
+                    marginLeft: "100px",
+                    marginRight: "300px",
+                    textAlign: "justify",
+                  }}
+                >
+                  This locator is our best effort to map independent pharmacies
+                  and is intended as a guide for patients. If you know of a
+                  location that is missing or an error, please contact us at
+                  PharmacyLocator@gmail.com
+                </p>
+              </ul>
             </div>
-        </footer>
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5
+                class="text"
+                style={{
+                  marginLeft: "50px",
+                  marginRight: "100px",
+                  textDecoration: "none",
+                  cursor: "pointer",
+                }}
+              >
+                Contact Us
+              </h5>
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#!" class="text-white">
+                    Telephone : +251967890345
+                  </a>
+                  <br />
+                  <a style={{ marginLeft: "72px" }}> :+251923456789</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">
+                    Email : PharmacyLocator@gmail.com
+                  </a>
+                  <br />
+                </li>
+              </ul>
+            </div>
 
-    );
-}
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5
+                class="text"
+                style={{
+                  marginLeft: "100px",
+                  marginRight: "50px",
+                  textDecoration: "none",
+                  cursor: "pointer",
+                }}
+              >
+                {" "}
+                Other Links
+              </h5>
+
+              <div
+                class="list-unstyled mb-0"
+                style={{
+                  marginLeft: "110px",
+                  marginRight: "50px",
+                  textDecoration: "none",
+                  cursor: "pointer",
+                }}
+              >
+                <i style={{ marginRight: "10px" }} class="fab fa-facebook-f" />
+
+                <i style={{ marginRight: "10px" }} class="fab fa-twitter" />
+
+                <i style={{ marginRight: "10px" }} class="fab fa-instagram" />
+                <i style={{ marginRight: "10px" }} class="fab fa-linkedin-in" />
+              </div>
+            </div>
+          </div>
+          <br />
+          <br />
+        </section>
+      </div>
+    </footer>
+  );
+};
 
 export default Footer1;

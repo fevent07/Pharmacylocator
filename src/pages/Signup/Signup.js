@@ -11,8 +11,9 @@ import IconButton from "@material-ui/core/IconButton";
 import Publish from "@material-ui/icons/Publish";
 import Location from "@material-ui/icons/LocationOn";
 import { red } from "@material-ui/core/colors";
+import Navbar from "../../components/GuestNavbar";
 import axios from "axios";
-
+import { useHistory } from "react-router";
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
         ? theme.palette.grey[50]
         : theme.palette.grey[900],
     backgroundSize: 929,
+    height: "100vh",
   },
   paper: {
     margin: theme.spacing(8, 4),
@@ -53,11 +55,13 @@ const useStyles = makeStyles((theme) => ({
 
 export const Signup = () => {
   const classes = useStyles();
-
+  const [success, setSuccess] = useState(false);
+  const history = useHistory();
   const [pharmacyName, setPharmacyName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [pharmacyType, setPharmacyType] = useState("");
-  const [location, setLocation] = useState("");
+  const [longitude, setLongitude] = useState("");
+  const [latitude, setLatitude] = useState("");
   const [openingHr, setOpeningHr] = useState("");
   const [closingHr, setClosingHr] = useState("");
   const [TIN_Number, setTIN_Number] = useState("");
@@ -65,7 +69,9 @@ export const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-
+  const Clickhandle = () => {
+    history.push("/");
+  };
   const changePharmacyName = (event) => {
     setPharmacyName(event.target.value);
   };
@@ -78,8 +84,12 @@ export const Signup = () => {
     setPharmacyType(event.target.value);
   };
 
-  const changeLocation = (event) => {
-    setLocation(event.target.value);
+  const changeLongitude = (event) => {
+    setLongitude(event.target.value);
+  };
+
+  const changeLatitude = (event) => {
+    setLatitude(event.target.value);
   };
 
   const changeOpeningHr = (event) => {
@@ -116,7 +126,7 @@ export const Signup = () => {
     const registered = {
       pharmacyName: pharmacyName,
       phoneNumber: phoneNumber,
-      location: location,
+      location: { type: "Point", coordinates: [longitude, latitude] },
       openingHr: openingHr,
       closingHr: closingHr,
       TIN_number: TIN_Number,
@@ -130,199 +140,248 @@ export const Signup = () => {
     axios
       .post("http://localhost:4000/user/sign-up", registered)
       .then((response) => console.log(response.data));
+    setSuccess(true);
+    history.push("/login");
   };
 
   return (
-    <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-          <Typography component="h1" variant="h5">
-            <h3>Registration Form</h3>
-          </Typography>
-          <form className={classes.form} noValidate onSubmit={onSubmit}>
-            <TextField
-              variant="standard"
-              //margin="normal"
-              required
-              fullWidth
-              id="text"
-              label="Pharmacy Name"
-              name="text"
-              autoComplete="text"
-              autoFocus
-              value={pharmacyName}
-              onChange={changePharmacyName}
-            />
+    <div>
+      <div>
+        <Navbar />
+        <Grid container component="main" className={classes.root}>
+          <CssBaseline />
+          <Grid item xs={false} sm={4} md={5} className={classes.image} />
+          <Grid
+            item
+            xs={12}
+            sm={8}
+            md={7}
+            component={Paper}
+            elevation={6}
+            square
+          >
+            <div className={classes.paper}>
+              <Typography component="h1" variant="h5">
+                <h3>Registration Form</h3>
+              </Typography>
+              <form className={classes.form} noValidate onSubmit={onSubmit}>
+                <TextField
+                  variant="standard"
+                  //margin="normal"
+                  required
+                  fullWidth
+                  id="text"
+                  label="Pharmacy Name"
+                  name="text"
+                  autoComplete="text"
+                  autoFocus
+                  value={pharmacyName}
+                  onChange={changePharmacyName}
+                />
 
-            <TextField
-              variant="standard"
-              //margin="normal"
-              required
-              fullWidth
-              id="phone_number"
-              label="Phone Number"
-              name="text"
-              autoComplete="number"
-              autoFocus
-              value={phoneNumber}
-              onChange={changePhoneNumber}
-            />
-            <TextField
-              variant="standard"
-              //margin="normal"
-              required
-              fullWidth
-              id="text"
-              label="Pharmacy Type"
-              name="text"
-              autoComplete="text"
-              autoFocus
-              value={pharmacyType}
-              onChange={changePharmacyType}
-            />
-            <TextField
-              label="Location"
-              name="text"
-              variant="standard"
-              //margin="normal"
-              required
-              fullWidth
-              autoComplete="text"
-              autoFocus
-              value={location}
-              onChange={changeLocation}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment>
-                    <IconButton>
-                      <Location style={{ color: red[500], fontSize: 30 }} />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
-            <TextField
-              variant="standard"
-              //margin="normal"
-              required
-              fullWidth
-              id="text"
-              label="Opening Hour"
-              name="text"
-              autoComplete="text"
-              autoFocus
-              value={openingHr}
-              onChange={changeOpeningHr}
-            />
-            <TextField
-              variant="standard"
-              //margin="normal"
-              required
-              fullWidth
-              id="text"
-              label="Closing Hour"
-              name="text"
-              autoComplete="text"
-              autoFocus
-              value={closingHr}
-              onChange={changeClosingHr}
-            />
-            <TextField
-              variant="standard"
-              //margin="normal"
-              required
-              fullWidth
-              id="text"
-              label="Pharmacy TIN Number"
-              name="text"
-              autoComplete="text"
-              autoFocus
-              value={TIN_Number}
-              onChange={changeTIN_Number}
-            />
-            <TextField
-              label="Upload Business License"
-              name="text"
-              variant="standard"
-              //margin="normal"
-              required
-              fullWidth
-              autoComplete="text"
-              autoFocus
-              value={businessLicense}
-              onChange={changeBusinessLicense}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment>
-                    <IconButton>
-                      <Publish style={{ fontSize: 30 }} />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
-            <TextField
-              variant="standard"
-              //margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              value={email}
-              onChange={changeEmail}
-            />
-            <TextField
-              variant="standard"
-              //margin="normal"
-              required
-              fullWidth
-              id="username"
-              label="Username"
-              name="username"
-              autoComplete="current-username"
-              autoFocus
-              value={username}
-              onChange={changeUsername}
-            />
-            <TextField
-              variant="standard"
-              //margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              value={password}
-              onChange={changePassword}
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.register}
-            >
-              Register
-            </Button>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.cancel}
-            >
-              Cancel
-            </Button>
-          </form>
-        </div>
-      </Grid>
-    </Grid>
+                <TextField
+                  variant="standard"
+                  //margin="normal"
+                  required
+                  fullWidth
+                  id="phone_number"
+                  label="Phone Number"
+                  name="text"
+                  autoComplete="number"
+                  autoFocus
+                  value={phoneNumber}
+                  onChange={changePhoneNumber}
+                />
+                <TextField
+                  variant="standard"
+                  //margin="normal"
+                  required
+                  fullWidth
+                  id="text"
+                  label="Pharmacy Type"
+                  name="text"
+                  autoComplete="text"
+                  autoFocus
+                  value={pharmacyType}
+                  onChange={changePharmacyType}
+                />
+                <TextField
+                  label="Longitude"
+                  name="text"
+                  variant="standard"
+                  //margin="normal"
+                  required
+                  fullWidth
+                  autoComplete="text"
+                  autoFocus
+                  value={longitude}
+                  onChange={changeLongitude}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment>
+                        <IconButton>
+                          <Location style={{ color: red[500], fontSize: 30 }} />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <TextField
+                  label="Latitude"
+                  name="text"
+                  variant="standard"
+                  //margin="normal"
+                  required
+                  fullWidth
+                  autoComplete="text"
+                  autoFocus
+                  value={latitude}
+                  onChange={changeLatitude}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment>
+                        <IconButton>
+                          <Location style={{ color: red[500], fontSize: 30 }} />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <TextField
+                  variant="standard"
+                  //margin="normal"
+                  required
+                  fullWidth
+                  id="text"
+                  label="Opening Hour"
+                  name="text"
+                  autoComplete="text"
+                  autoFocus
+                  value={openingHr}
+                  onChange={changeOpeningHr}
+                />
+                <TextField
+                  variant="standard"
+                  //margin="normal"
+                  required
+                  fullWidth
+                  id="text"
+                  label="Closing Hour"
+                  name="text"
+                  autoComplete="text"
+                  autoFocus
+                  value={closingHr}
+                  onChange={changeClosingHr}
+                />
+                <TextField
+                  variant="standard"
+                  //margin="normal"
+                  required
+                  fullWidth
+                  id="text"
+                  label="Pharmacy TIN Number"
+                  name="text"
+                  autoComplete="text"
+                  autoFocus
+                  value={TIN_Number}
+                  onChange={changeTIN_Number}
+                />
+                <TextField
+                  label="Upload Business License"
+                  name="text"
+                  variant="standard"
+                  //margin="normal"
+                  required
+                  fullWidth
+                  autoComplete="text"
+                  autoFocus
+                  value={businessLicense}
+                  onChange={changeBusinessLicense}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment>
+                        <IconButton>
+                          <Publish style={{ fontSize: 30 }} />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <TextField
+                  variant="standard"
+                  //margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email"
+                  name="email"
+                  autoComplete="email"
+                  autoFocus
+                  value={email}
+                  onChange={changeEmail}
+                />
+                <TextField
+                  variant="standard"
+                  //margin="normal"
+                  required
+                  fullWidth
+                  id="username"
+                  label="Username"
+                  name="username"
+                  autoComplete="current-username"
+                  autoFocus
+                  value={username}
+                  onChange={changeUsername}
+                />
+                <TextField
+                  variant="standard"
+                  //margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  value={password}
+                  onChange={changePassword}
+                />
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={classes.register}
+                >
+                  Register
+                </Button>
+                {success && (
+                  <span
+                    style={{
+                      color: "green",
+                      textAlign: "center",
+                      marginTop: "20px",
+                    }}
+                  >
+                    <br />
+                    <br /> Registered successfully{" "}
+                  </span>
+                )}
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={classes.cancel}
+                  onClick={Clickhandle}
+                >
+                  Cancel
+                </Button>
+              </form>
+            </div>
+          </Grid>
+        </Grid>
+      </div>
+    </div>
   );
 };

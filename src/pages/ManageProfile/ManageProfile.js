@@ -92,9 +92,10 @@ export const ManageProfile = () => {
   };
 
   useEffect(() => {
-    axios.get(
-      `http://localhost:4000/pharmacy/show/${localStorage.getItem("token")}`
-    )
+    axios
+      .get(
+        `http://localhost:4000/pharmacy/show/${localStorage.getItem("token")}`
+      )
       .then((res) => res)
       .then((res) => {
         console.log(res.data);
@@ -114,7 +115,6 @@ export const ManageProfile = () => {
     //   .then(response);
     // console.log(respose);
 
-
     if (file) {
       const data = new FormData();
       const filename = Date.now() + file.name;
@@ -123,7 +123,7 @@ export const ManageProfile = () => {
       updateUser.profilePic = filename;
       try {
         await axios.post("http://localhost:4000/upload", data);
-      } catch (err) { }
+      } catch (err) {}
       data.append("name", filename);
     }
 
@@ -174,13 +174,12 @@ export const ManageProfile = () => {
                 />
                 <div className="allProfile">
                   <h2>
-                    <div> User Name :  {datas.userName}</div>
+                    <div> User Name : {datas.userName}</div>
                     <div> Email : {datas.email}</div>
                     <div>PhoneNumber : {datas.phoneNumber}</div>
                     <div>UserRole: Pharmacy</div>
                   </h2>
                 </div>
-
               </div>
             </Grid>
             <Grid
@@ -252,7 +251,6 @@ export const ManageProfile = () => {
                     />
                   </div>
 
-                  <h2> Pharmacy Bio </h2>
                   {/* <div>
                     <TextField
                       style={{ width: "500px" }}
@@ -268,18 +266,6 @@ export const ManageProfile = () => {
                     />
                   </div> */}
 
-                  <div>
-                    <TextField
-                      style={{ width: "500px" }}
-                      variant="outlined"
-                      //required
-                      id="text"
-                      label="Location"
-                      name="text"
-                      autoComplete="text"
-                      autoFocus
-                    />
-                  </div>
                   <Button
                     type="submit"
                     fullWidth
@@ -382,5 +368,5 @@ export const ManageProfile = () => {
       </div>
     </div>
   );
-}
+};
 export default ManageProfile;

@@ -154,7 +154,11 @@ export const Login = () => {
                 color="primary"
                 className={classes.submit}
               >
-                <Link to="/signup" className="link">
+                <Link
+                  to="/signup"
+                  className="link"
+                  style={{ textDecoration: "none", color: "black" }}
+                >
                   Create New Account
                 </Link>
               </Button>

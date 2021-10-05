@@ -1,13 +1,15 @@
 .home {
-  flex: 9;
-  width: 100vw;
+  flex: 7;
+  /* width: 100vw; */
   display: flex;
   flex-direction: column;
+  /* float: left; */
 }
 .side {
+  flex: 0;
   display: flex;
   height: auto;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   float: left;
   margin-left: auto;
 }

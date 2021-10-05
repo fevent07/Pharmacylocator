@@ -4,8 +4,10 @@ import L, { popup } from "leaflet";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import Grid from "@material-ui/core/Grid";
 import GeoLocation from "../../pages/useGeoLocation";
+import Navbar from "../../components/GuestNavbar/index";
 import custonMarker from "./images/img/marker.png";
 import "../../App.css";
+// import "./map.css";
 //8.885215206422316, 38.809657194171386
 
 const Map1 = () => {
@@ -18,7 +20,6 @@ const Map1 = () => {
   const [activePharmacy, setActivePharmacy] = React.useState({});
   const [pharmaGeo, setPharmaGeo] = React.useState([]);
   const location = GeoLocation();
-
   const showMyLocation = () => {
     if (location.loaded && !location.error) {
       mapRef.current.leafletElement.flyTo(
@@ -64,6 +65,7 @@ const Map1 = () => {
   });
   return (
     <div className="App">
+      <Navbar />
       <div>
         <Col sm={4} lg={10}>
           {/* <h1> WELCOME {userName}</h1> */}
@@ -117,7 +119,7 @@ const Map1 = () => {
                     >
                       <div>
                         <h2>{pharmacy.pharmacyName}</h2>
-                        <p>{pharmacy.pharmacyName}</p>
+                        <p>{pharmacy.pharmacyType}</p>
                       </div>
                     </Popup>
                   </Marker>
@@ -127,7 +129,45 @@ const Map1 = () => {
           </Grid>
         </Col>
       </div>
-      <div style={{ marginLeft: "30px" }}>
+
+      <div
+        className=" cls "
+        style={{
+          marginBottom: "50px",
+          // marginTop: "80px",
+          // marginLeft: "80px",
+          // margin: "80px 80px",
+          // borderRadius: "20px",
+          // border: "none",
+          // display: "flex",
+          // flexDirection: "column",
+          // justifyContent: "center",
+          // alignItems: "center",
+          // textAlign: "center",
+          // width: "100%",
+          // background: " linear-gradient(145deg, #bacfde, #ddf6ff)",
+          // boxShadow: " 8px 8px 16px #d4d4d4,-8px -8px 16px #ffffff",
+        }}
+      >
+        {/* <h3 className="font-bold text-xl mb-3"> */}
+        {pharmaGeo.map((pharmacy) => (
+          <Card
+            className="p-1 col-xs-6 map-card"
+            style={{ width: "600px", marginLeft: "240px",  marginTop: "50px" }}
+          >
+            <CardBody
+              className="map-card-div"
+              style={{ width: "300px", marginLeft: "50px" }}
+            >
+              <div className="font-bold mb-3">{pharmacy.pharmacyName}</div>
+              <div className="mb-3">{pharmacy.email}</div>
+            </CardBody>
+          </Card>
+        ))}
+        {/* </h3> */}
+      </div>
+
+      {/* <div style={{ marginLeft: "30px" }}>
         <card container="container">
           <Col sm={4} lg={10}>
             <br /> <br />
@@ -146,7 +186,7 @@ const Map1 = () => {
             </Col>
           </Col>
         </card>
-      </div>
+      </div> */}
     </div>
   );
 };

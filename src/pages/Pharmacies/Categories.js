@@ -128,6 +128,10 @@ export function useAxiosGet(url) {
 
   return request;
 }
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
 
 export const Categories = (props) => {
   const classes = useStyles();
@@ -138,8 +142,8 @@ export const Categories = (props) => {
       <Card className={classes.root}>
         <CardMedia
           className={classes.cover}
-          //image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5O71KSU5PAdoL9J0cbINeGpG-qzcxcYKsEg&usqp=CAU"
-          image={props.product.profilePic}
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5O71KSU5PAdoL9J0cbINeGpG-qzcxcYKsEg&usqp=CAU"
+          // image={props.product.profilePic}
           title="Live from space album cover"
         />
         <div className={classes.details}>
@@ -170,11 +174,11 @@ export const Categories = (props) => {
           <ThemeProvider theme={demo1}>
             <Button onClick={onClick} variant="outlined" color="secondary">
               View Details
-            </Button>
+            </Button> 
             <br></br>
             <br></br>
             <Button onClick={onClick} variant="contained" color="primary">
-              Browser
+              <a href={"https://safe.pharmacy/"}>Browser</a>
             </Button>
           </ThemeProvider>
         </CardContent>

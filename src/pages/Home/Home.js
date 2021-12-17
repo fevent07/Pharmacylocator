@@ -201,7 +201,7 @@ export const Home = () => {
               color="textSecondary"
               paragraph
             >
-              Find your medication Discover the nearest pharmacy
+              Find your medication, Discover the nearest pharmacy
             </Typography>
 
             <Paper component="form" className={classes.root}>

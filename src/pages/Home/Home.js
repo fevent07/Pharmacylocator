@@ -201,7 +201,7 @@ export const Home = () => {
               color="textSecondary"
               paragraph
             >
-              Find your medication, Discover the nearest pharmacy
+              Find your medication Discover the nearest pharmacy
             </Typography>
 
             <Paper component="form" className={classes.root}>
@@ -393,7 +393,7 @@ export const Home = () => {
                   href="https://www.gavi.org/covid19-vaccines?gclid"
                   alt="Broken Link"
                 >
-                  Learn more >{" "}
+                  Learn more {" "}
                 </a>
               </button>
             </Typography>
